@@ -34,14 +34,14 @@ Plack::Middleware::GTop::ProcMem - for measuring process memory
 
   use Plack::Builder;
   builder {
-    enable 'GTop::Mem', callback => sub {
-        my ($env, $res, $before, $after) = @_;
-        # $before, $after isa GTop::ProcMem
-        my $diff = $after->rss - $before->rss;
-        warn sprintf("%s RSS diff %d\n", $env->{REQUEST_URI}, $diff);
-    };
-    $app;
-};
+      enable 'GTop::Mem', callback => sub {
+          my ($env, $res, $before, $after) = @_;
+          # $before, $after isa GTop::ProcMem
+          my $diff = $after->rss - $before->rss;
+          warn sprintf("%s RSS diff %d\n", $env->{REQUEST_URI}, $diff);
+      };
+      $app;
+  };
 
 =head1 DESCRIPTION
 
@@ -53,17 +53,17 @@ Plack::Middleware::GTop::ProcMem is middleware for measuring process memory.
 
 =item callback
 
-  callback subref will be called after process app.
+callback subref will be called after process app.
 
   callback => sub {
       my ($env, $res, $before, $after) = @_;
       ...
   };
 
-  First argument is Plack env.
-  Second argument is Plack response.
-  Third argument is a GTop::ProcMem object at before process app.
-  Fourth argument is a GTop::ProcMem object at after process app.
+First argument is Plack env.
+Second argument is Plack response.
+Third argument is a GTop::ProcMem object at before process app.
+Fourth argument is a GTop::ProcMem object at after process app.
 
 =back
 
@@ -73,7 +73,11 @@ FUJIWARA Shunichiro E<lt>fujiwara@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
-=L<GTop>
+L<GTop> L<Plack::Middleware>
+
+=head1 REPOSITORY
+
+https://github.com/fujiwara/Plack-Middleware-GTop-ProcMem
 
 =head1 LICENSE
 
