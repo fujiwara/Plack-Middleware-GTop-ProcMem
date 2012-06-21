@@ -2,7 +2,8 @@ use inc::Module::Install;
 name 'Plack-Middleware-GTop-ProcMem';
 all_from 'lib/Plack/Middleware/GTop/ProcMem.pm';
 
-# requires '';
+requires 'Plack';
+requires 'GTop';
 
 tests 't/*.t';
 author_tests 'xt';
