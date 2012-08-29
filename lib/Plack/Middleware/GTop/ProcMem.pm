@@ -34,7 +34,7 @@ Plack::Middleware::GTop::ProcMem - for measuring process memory
 
   use Plack::Builder;
   builder {
-      enable 'GTop::Mem', callback => sub {
+      enable 'GTop::ProcMem', callback => sub {
           my ($env, $res, $before, $after) = @_;
           # $before, $after isa GTop::ProcMem
           my $diff = $after->rss - $before->rss;
